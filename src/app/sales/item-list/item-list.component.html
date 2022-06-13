@@ -1,0 +1,32 @@
+<div>
+  <h1>{{tittle}}</h1>
+  <h1>{{simpleDate}}</h1>
+  <button (click)="updateDate()">Refresh Date</button>
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Description</th>
+        <th>Item Price</th>
+        <th>Discount</th>
+        <th>Total Price</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.desc}}</td>
+        <td>{{item.price | currency: 'USD'}}</td>
+        <td>{{discount}}%</td>
+        <td>{{item.price - ((item.price*discount)/100) | currency: 'USD'}}</td>
+        <td></td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
